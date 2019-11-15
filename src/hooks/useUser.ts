@@ -7,10 +7,10 @@ import { login as LoginUser, ILogin, logout as LogoutUser } from "helpers/endpoi
 
 function useUser() {
 	const dispatch = useAppDispatch();
-	async function login({ username, password }: ILogin) {
+	async function login({ email, password }: ILogin) {
 		try {
 			const res = await LoginUser({
-				username,
+				email,
 				password,
 			});
 

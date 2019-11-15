@@ -5,11 +5,11 @@ interface BaseRequest<T = {}> {
 }
 //////////// Authentication functions
 export interface ILogin {
-	username: string;
+	email: string;
 	password: string;
 }
 export const login = (user: ILogin): Promise<BaseRequest<{ success: boolean }>> => {
-	return api.post("login", user);
+	return api.post("login", { password: user.password, username: user.email });
 };
 export const logout = (): Promise<any> => {
 	return api.post("logout");

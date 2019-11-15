@@ -27,7 +27,7 @@ const Login: React.FC<FormComponentProps> = props => {
 					setLoading(false);
 				} catch (error) {
 					setLoading(false);
-					showNotify({ text: "Something went wrong! check username and password", duration: 3000 });
+					showNotify({ text: "Something went wrong! check email and password", duration: 3000 });
 
 					throw error;
 				}
@@ -38,12 +38,12 @@ const Login: React.FC<FormComponentProps> = props => {
 	return (
 		<Main>
 			<Form className={styles["login"]} onSubmit={(e: React.FormEvent) => handleSubmit(e)}>
-				<Form.Item label="Username">
-					{getFieldDecorator("username", {
+				<Form.Item label="email">
+					{getFieldDecorator("email", {
 						rules: [
 							{
 								required: true,
-								message: "Enter username",
+								message: "Enter email",
 								transform: value => (value ? value.trim() : value),
 							},
 						],
