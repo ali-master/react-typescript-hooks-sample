@@ -1,21 +1,35 @@
 import * as R from "ramda";
+import { Fame } from "helpers/endpoints";
 
-type AppActionType = "LOGGED_IN";
+type AppActionType = "LOGGED_IN" | "ADD_FAMES" | "RESET";
 export interface AppAction {
 	type: AppActionType;
 	payload?: any;
 }
 
+export interface AppState {
+	fames: Fame[];
+	isLoggedIn: boolean;
+}
 export const appInitialState = {
 	isLoggedIn: false,
+	fames: [],
 };
-export type AppState = typeof appInitialState;
 export const appReducer = (state: AppState, action: AppAction): AppState => {
 	const updateState = R.merge<AppState>(state);
 	switch (action.type) {
 		case "LOGGED_IN":
 			return updateState({
 				isLoggedIn: true,
+			});
+		case "ADD_FAMES":
+			return updateState({
+				fames: action.payload.fames,
+			});
+		case "RESET":
+			return updateState({
+				fames: [],
+				isLoggedIn: false,
 			});
 		default:
 			return state;

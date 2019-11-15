@@ -7,12 +7,8 @@ export const AppDispatchContext = createContext((() => 0) as React.Dispatch<AppA
 
 // Use contexts
 export const useAppDispatch = () => useContext(AppDispatchContext);
-export const useAppState = <K extends keyof AppState>(property?: K) => {
-	const state = useContext(AppStateContext);
+export const useAppState = () => {
+	const state: AppState = useContext(AppStateContext);
 
-	if (property) {
-		return state[property];
-	} else {
-		return state;
-	}
+	return state;
 };

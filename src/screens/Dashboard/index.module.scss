@@ -1,4 +1,14 @@
-.dashboard-content {
-	padding-bottom: 50px;
-	background-image: linear-gradient(#cac7c7, #eae4e4 5%);
+.dashboard {
+	padding: 50px 0;
+
+	&__actors {
+		transition: all 0.2s;
+
+		&:hover {
+			transform: scale(1.1);
+			z-index: 2;
+			cursor: pointer;
+			box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.3);
+		}
+	}
 }
