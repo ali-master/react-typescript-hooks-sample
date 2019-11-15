@@ -3,7 +3,7 @@ import history, { push, getRedirectPath } from "helpers/history";
 import * as R from "ramda";
 import { remove, store } from "helpers/localStorage";
 import { useAppDispatch } from "state/index.app";
-import { login as LoginUser, ILogin } from "helpers/endpoints";
+import { login as LoginUser, ILogin, logout as LogoutUser } from "helpers/endpoints";
 
 function useUser() {
 	const dispatch = useAppDispatch();
@@ -46,6 +46,8 @@ function useUser() {
 	 * 3) Redirect user to login page
 	 */
 	async function logout() {
+		await LogoutUser();
+
 		remove("token");
 
 		dispatch({ type: "RESET" });

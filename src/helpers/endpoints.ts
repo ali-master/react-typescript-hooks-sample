@@ -11,6 +11,9 @@ export interface ILogin {
 export const login = (user: ILogin): Promise<BaseRequest<{ success: boolean }>> => {
 	return api.post("login", user);
 };
+export const logout = (): Promise<any> => {
+	return api.post("logout");
+};
 ///// Fames
 export interface IFame {
 	id: string;

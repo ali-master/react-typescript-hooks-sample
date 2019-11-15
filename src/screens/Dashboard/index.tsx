@@ -1,23 +1,28 @@
 import * as React from "react";
 // UI Framework and Global Components
-import { Row, Col } from "antd";
+import { Row, Col, Modal, Button } from "antd";
 import { Switch, Route } from "react-router";
 // Shared components
 import PageTitle from "components/PageTitle";
+// Local components
+import Fame from "./screens/Fame";
+import Actor from "./components/Actor";
 // Utilities and hooks
-import cs from "classnames";
-import { useAppDispatch, useAppState } from "state/index.app";
-import { fetchFames, IFame } from "helpers/endpoints";
 import * as R from "ramda";
+import cs from "classnames";
+import useUser from "hooks/useUser";
+import { push } from "helpers/history";
+import { fetchFames, IFame } from "helpers/endpoints";
+import { useAppDispatch, useAppState } from "state/index.app";
 // Styles
 import styles from "./index.module.scss";
-import Fame from "./screens/Fame";
-import { push } from "helpers/history";
-import Actor from "./components/Actor";
+
+const { confirm } = Modal;
 
 const Dashboard: React.FC = () => {
 	const dispatch = useAppDispatch();
 	const state = useAppState();
+	const user = useUser();
 
 	React.useEffect(() => {
 		// @ts-ignore
@@ -35,6 +40,15 @@ const Dashboard: React.FC = () => {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	function showConfirm() {
+		confirm({
+			title: "Are you sure you want to sign-out?",
+			async onOk() {
+				await user.logout();
+			},
+		});
+	}
 
 	return (
 		<div className={cs("container", styles.dashboard)}>
@@ -63,6 +77,9 @@ const Dashboard: React.FC = () => {
 				</Route>
 				<Route path="/dashboard/fame/:id" component={Fame} />
 			</Switch>
+			<Button onClick={() => showConfirm()} icon="poweroff" className={styles["dashboard__signoutBtn"]}>
+				Sign out
+			</Button>
 		</div>
 	);
 };
