@@ -1,5 +1,5 @@
 import * as R from "ramda";
-import { Fame } from "helpers/endpoints";
+import { IFame } from "helpers/endpoints";
 
 type AppActionType = "LOGGED_IN" | "ADD_FAMES" | "RESET";
 export interface AppAction {
@@ -8,7 +8,7 @@ export interface AppAction {
 }
 
 export interface AppState {
-	fames: Fame[];
+	fames: IFame[];
 	isLoggedIn: boolean;
 }
 export const appInitialState = {

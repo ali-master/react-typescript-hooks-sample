@@ -8,11 +8,11 @@ import Auth from "screens/Auth";
 import Dashboard from "screens/Dashboard";
 // Utilities and hooks
 import history from "helpers/history";
+import { read } from "helpers/localStorage";
 import { appReducer, appInitialState } from "state/reducer.app";
 import { AppDispatchContext, AppStateContext } from "state/index.app";
 // Styles
 import "./styles/app.scss";
-import { read } from "helpers/localStorage";
 
 const App: React.FC = () => {
 	const [appState, appDispatch] = React.useReducer(appReducer, appInitialState);

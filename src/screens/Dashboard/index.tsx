@@ -1,17 +1,19 @@
 import * as React from "react";
-// UI Framework
-import { Card, Row, Col } from "antd";
+// UI Framework and Global Components
+import { Row, Col } from "antd";
+import { Switch, Route } from "react-router";
 // Shared components
 import PageTitle from "components/PageTitle";
 // Utilities and hooks
 import cs from "classnames";
 import { useAppDispatch, useAppState } from "state/index.app";
-import { fetchFames, Fame } from "helpers/endpoints";
+import { fetchFames, IFame } from "helpers/endpoints";
 import * as R from "ramda";
 // Styles
 import styles from "./index.module.scss";
-
-const { Meta } = Card;
+import Fame from "./screens/Fame";
+import { push } from "helpers/history";
+import Actor from "./components/Actor";
 
 const Dashboard: React.FC = () => {
 	const dispatch = useAppDispatch();
@@ -36,18 +38,31 @@ const Dashboard: React.FC = () => {
 
 	return (
 		<div className={cs("container", styles.dashboard)}>
-			<PageTitle title="Dashboard" />
-			<Row gutter={20}>
-				{R.map<Fame, React.ReactNode>(fame => {
-					return (
-						<Col key={fame.id} span={8} style={{ marginBottom: 30 }}>
-							<Card className={styles["dashboard__actors"]} cover={<img alt="" src={fame.image} />}>
-								<Meta title={fame.name} description={`Birthday: ${fame.dob}`} />
-							</Card>
-						</Col>
-					);
-				})(state.fames)}
-			</Row>
+			<Switch>
+				<Route path="/dashboard" exact>
+					<PageTitle title="Dashboard" />
+					<Row gutter={20}>
+						{R.map<IFame, React.ReactNode>(fame => {
+							return (
+								<Col
+									onClick={() => push(`/dashboard/fame/${fame.id}`)}
+									key={fame.id}
+									span={8}
+									style={{ marginBottom: 30 }}
+								>
+									<Actor
+										name={fame.name}
+										dob={fame.dob}
+										image={fame.image}
+										className={styles["dashboard__actors"]}
+									/>
+								</Col>
+							);
+						})(state.fames)}
+					</Row>
+				</Route>
+				<Route path="/dashboard/fame/:id" component={Fame} />
+			</Switch>
 		</div>
 	);
 };
