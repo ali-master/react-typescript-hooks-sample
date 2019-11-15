@@ -12,9 +12,18 @@ import { appReducer, appInitialState } from "state/reducer.app";
 import { AppDispatchContext, AppStateContext } from "state/index.app";
 // Styles
 import "./styles/app.scss";
+import { read } from "helpers/localStorage";
 
 const App: React.FC = () => {
 	const [appState, appDispatch] = React.useReducer(appReducer, appInitialState);
+
+	React.useEffect(() => {
+		if (read("token")) {
+			appDispatch({
+				type: "LOGGED_IN",
+			});
+		}
+	}, []);
 
 	return (
 		<div className="App">

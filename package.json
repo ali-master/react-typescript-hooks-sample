@@ -13,6 +13,7 @@
 	},
 	"dependencies": {
 		"antd": "^3.25.0",
+		"axios": "^0.19.0",
 		"classnames": "^2.2.6",
 		"node-snackbar": "^0.1.16",
 		"qs": "^6.9.1",
@@ -21,8 +22,7 @@
 		"react-dom": "^16.11.0",
 		"react-helmet": "^5.2.1",
 		"react-router": "^5.1.2",
-		"react-router-dom": "^5.1.2",
-		"swr": "^0.1.10"
+		"react-router-dom": "^5.1.2"
 	},
 	"devDependencies": {
 		"@babel/core": "7.7.2",
@@ -122,12 +122,7 @@
 			"last 1 safari version"
 		]
 	},
-	"proxy": "http://192.168.10.210:8762",
-	"relativePath": {
-		"development": "/",
-		"staging": "https://fund.aminsft.com/stg-web",
-		"production": "https://fund.aminsft.com/web"
-	},
+	"proxy": "https://halloffame-server.herokuapp.com",
 	"activationEvents": [
 		"workspaceContains:jest.config.js",
 		"workspaceContains:jest.json",

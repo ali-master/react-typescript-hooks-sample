@@ -4,30 +4,30 @@ import { Form, Input, Button } from "antd";
 import { FormComponentProps } from "antd/lib/form";
 // Local shared components
 import Main from "screens/Auth/components/Main";
-//Services
+// Services
 import showNotify from "helpers/notify";
-
 // Styles
 import styles from "./index.module.scss";
+import useUser from "hooks/useUser";
 
 const Login: React.FC<FormComponentProps> = props => {
+	const user = useUser();
 	const [loading, setLoading] = React.useState(false);
 	const { getFieldDecorator } = props.form;
-	/**
-	 *
-	 * @param e
-	 */
-	function handleSubmit(e: React.FormEvent): void {
+
+	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
+
 		props.form.validateFields(async (err, values) => {
 			if (!err) {
 				try {
 					setLoading(true);
-					// await login(values);
-					showNotify({ text: " Logged-in successfully", duration: 3000 });
+					await user.login(values);
+					showNotify({ text: "Logged-in successfully", duration: 3000 });
 					setLoading(false);
 				} catch (error) {
 					setLoading(false);
+					showNotify({ text: "Something went wrong! check username and password", duration: 3000 });
 
 					throw error;
 				}
@@ -37,7 +37,7 @@ const Login: React.FC<FormComponentProps> = props => {
 
 	return (
 		<Main>
-			<Form className={styles["login"]} onSubmit={(e: any) => handleSubmit(e)}>
+			<Form className={styles["login"]} onSubmit={(e: React.FormEvent) => handleSubmit(e)}>
 				<Form.Item label="Username">
 					{getFieldDecorator("username", {
 						rules: [

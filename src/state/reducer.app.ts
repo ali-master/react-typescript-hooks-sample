@@ -1,8 +1,8 @@
-// import * as R from "ramda";
+import * as R from "ramda";
 
-type AppActionType = "INITIAL" | string;
+type AppActionType = "LOGGED_IN";
 export interface AppAction {
-	type: AppActionType,
+	type: AppActionType;
 	payload?: any;
 }
 
@@ -11,9 +11,12 @@ export const appInitialState = {
 };
 export type AppState = typeof appInitialState;
 export const appReducer = (state: AppState, action: AppAction): AppState => {
-
-	// const updateState = R.merge(state);
+	const updateState = R.merge<AppState>(state);
 	switch (action.type) {
+		case "LOGGED_IN":
+			return updateState({
+				isLoggedIn: true,
+			});
 		default:
 			return state;
 	}

@@ -9,7 +9,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
-function ensureSlash(inputPath, needsSlash) {
+function ensureSlash (inputPath, needsSlash) {
 	const hasSlash = inputPath.endsWith("/");
 	if (hasSlash && !needsSlash) {
 		return inputPath.substr(0, inputPath.length - 1);
@@ -21,7 +21,7 @@ function ensureSlash(inputPath, needsSlash) {
 }
 
 const getPublicUrl = appPackageJson =>
-	envPublicUrl || require(appPackageJson).relativePath[process.env.REACT_APP_BUILD_ENV];
+	envPublicUrl || require(appPackageJson).publicUrl;
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
@@ -29,7 +29,7 @@ const getPublicUrl = appPackageJson =>
 // single-page apps that may serve index.html for nested URLs like /todos/42.
 // We can't use a relative path in HTML because we don't want to load something
 // like /todos/42/static/js/bundle.7289d.js. We have to know the root.
-function getServedPath(appPackageJson) {
+function getServedPath (appPackageJson) {
 	const publicUrl = getPublicUrl(appPackageJson);
 	const servedUrl = envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : "/");
 	return ensureSlash(servedUrl, true);
