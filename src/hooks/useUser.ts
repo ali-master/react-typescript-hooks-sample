@@ -48,6 +48,8 @@ function useUser() {
 	async function logout() {
 		remove("token");
 
+		dispatch({ type: "RESET" });
+
 		push(`/auth/login?redirect=${getRedirectPath()}`);
 	}
 
