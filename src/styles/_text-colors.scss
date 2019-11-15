@@ -1,0 +1,81 @@
+.grad-blue-purple {
+	display: inline-block;
+
+	background: -webkit-linear-gradient(left, #3f9dec, #a637ca);
+	background: linear-gradient(to right, #3f9dec, #a637ca);
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+.grad-purple-pink {
+	display: inline-block;
+
+	background: -webkit-linear-gradient(left, #6758c5, #e072c3);
+	background: linear-gradient(to right, #6758c5, #e072c3);
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+.grad-pink-purple {
+	display: inline-block;
+
+	background: -webkit-linear-gradient(right, #6758c5, #e072c3);
+	background: linear-gradient(to left, #6758c5, #e072c3);
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+.grad-peach-purple {
+	display: inline-block;
+
+	background: -webkit-linear-gradient(left, #f98ea6, #9966d7);
+	background: linear-gradient(to right, #f98ea6, #9966d7);
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+.grad-blue-indigo,
+.ant-divider-inner-text {
+	display: inline-block;
+
+	background: -webkit-linear-gradient(left, #5fb4e0, #4e4ecf);
+	background: linear-gradient(to right, #5fb4e0, #4e4ecf);
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+.grad-indigo {
+	display: inline-block;
+
+	background: -webkit-linear-gradient(left, #7b7eda, #6c71c0);
+	background: -webkit-linear-gradient(left, #6c71c0, #7b7eda);
+	background: linear-gradient(to right, #6c71c0, #7b7eda);
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+.grad-teal-blue {
+	display: inline-block;
+
+	background: -webkit-linear-gradient(left, #00b5c0, #0091d9);
+	background: linear-gradient(to right, #00b5c0, #0091d9);
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+.grad-orange-pink {
+	display: inline-block;
+
+	background: -webkit-linear-gradient(left, #fe9ba0, #e072c3);
+	background: linear-gradient(to right, #fe9ba0, #e072c3);
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}

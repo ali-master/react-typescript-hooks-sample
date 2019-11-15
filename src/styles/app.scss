@@ -1,0 +1,37 @@
+@import "~antd/dist/antd.css";
+@import "vars";
+@import "text-colors";
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700&subset=cyrillic");
+
+ul {
+	padding-right: 0;
+}
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	@media (min-width: 768px) {
+		width: 750px;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+
+	@media (min-width: 992px) {
+		width: 970px;
+	}
+
+	@media (min-width: 1200px) {
+		width: 1100px;
+	}
+}
+.snakbarify {
+	font-family: var(--font-family);
+	cursor: default;
+	user-select: none;
+
+	@media screen and (min-width: 640px) {
+		border-radius: 30px;
+	}
+}

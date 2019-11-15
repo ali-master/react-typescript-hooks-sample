@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"editorconfig.editorconfig",
+		"shinnn.stylelint",
+		"dsznajder.es7-react-js-snippets",
+		"wix.vscode-import-cost"
+	]
+}

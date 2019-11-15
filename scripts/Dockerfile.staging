@@ -1,0 +1,12 @@
+FROM node:11.2.0 as builder
+
+WORKDIR /
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build:staging
+
+FROM nginx
+WORKDIR /build/
+COPY --from=builder /build/ .
+COPY scripts/nginx.staging.conf /etc/nginx/conf.d/default.conf

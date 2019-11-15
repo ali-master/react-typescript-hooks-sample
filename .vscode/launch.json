@@ -1,0 +1,23 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug App",
+			"type": "chrome",
+			"request": "launch",
+			"url": "http://localhost:3000",
+			"webRoot": "${workspaceFolder}/src",
+			"sourceMapPathOverrides": {
+				"webpack:///src/*": "${webRoot}/*"
+			}
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Debug Tests",
+			"program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+			"cwd": "${workspaceRoot}",
+			"args": ["--i", "--config", "jest.config.js"]
+		}
+	]
+}

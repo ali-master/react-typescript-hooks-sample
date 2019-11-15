@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"asssets/*": ["src/assets/*"],
+			"components/*": ["src/components/*"],
+			"hoc/*": ["src/hoc/*"],
+			"hooks/*": ["src/hooks/*"],
+			"helpers/*": ["src/helpers/*"],
+			"screens/*": ["src/screens/*"],
+			"services/*": ["src/services/*"],
+			"httpService/*": ["src/services/http/*"],
+			"state/*": ["src/state/*"],
+			"styles/*": ["src/styles/*"]
+		}
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "build", "config", "scripts", "public", "coverage"]
+}

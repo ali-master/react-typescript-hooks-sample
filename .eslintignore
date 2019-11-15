@@ -1,0 +1,6 @@
+node_modules/
+build
+src/registerServiceWorker.js
+src/**/__tests__/**
+src/typings
+scripts/service-worker/

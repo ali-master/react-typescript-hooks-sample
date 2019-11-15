@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"outDir": "build/",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"sourceMap": true,
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": false,
+		"preserveConstEnums": false,
+		"noEmit": true,
+		"jsx": "react",
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"noEmitHelpers": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true
+	},
+	"extends": "./jsconfig.path.json"
+}
