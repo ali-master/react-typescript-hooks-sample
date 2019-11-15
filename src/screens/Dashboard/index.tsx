@@ -42,7 +42,7 @@ const Dashboard: React.FC = () => {
 					return (
 						<Col key={fame.id} span={8} style={{ marginBottom: 30 }}>
 							<Card className={styles["dashboard__actors"]} cover={<img alt="" src={fame.image} />}>
-								<Meta title={fame.name} description={fame.dob} />
+								<Meta title={fame.name} description={`Birthday: ${fame.dob}`} />
 							</Card>
 						</Col>
 					);
