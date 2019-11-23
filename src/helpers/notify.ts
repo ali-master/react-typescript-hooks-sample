@@ -24,7 +24,7 @@ export const showNotify = (settings: Notify | Error): void => {
 	if (settings) {
 		return snackbar.show({
 			customClass: "snakbarify",
-			actionText: "بستن",
+			actionText: "Close",
 			showAction: false,
 			pos: "bottom-center",
 			...settings,
