@@ -1,5 +1,5 @@
 {
-	"name": "react-test",
+	"name": "react-typescript-hooks-sample",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -8,7 +8,6 @@
 		"lint:fix": "eslint './src/**/*.{ts,tsx,js,jsx}' --fix",
 		"analyze": "source-map-explorer 'build/static/js/*.js'",
 		"build": "env-cmd -f ./.env.production node scripts/build.js",
-		"build:staging": "env-cmd -f ./.env.staging node scripts/build.js",
 		"test:ci": "cross-env CI=true node scripts/test.js --bail --findRelatedTests"
 	},
 	"dependencies": {
@@ -122,13 +121,5 @@
 			"last 1 safari version"
 		]
 	},
-	"proxy": "https://halloffame-server.herokuapp.com",
-	"activationEvents": [
-		"workspaceContains:jest.config.js",
-		"workspaceContains:jest.json",
-		"workspaceContains:node_modules/.bin/jest",
-		"workspaceContains:node_modules/react-scripts/node_modules/.bin/jest",
-		"workspaceContains:node_modules/react-native-scripts",
-		"onCommand:io.orta.jest.start"
-	]
+	"proxy": "https://halloffame-server.herokuapp.com"
 }
