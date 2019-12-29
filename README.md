@@ -14,6 +14,8 @@ A bare minimum react-typescript-hooks-sample boilerplate.
 - Editorconfig
 - Ramda
 
+Login username/password: `username=test` & `password=test`
+
 ## Directory Structure:
 ```bash
 ├── config
