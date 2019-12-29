@@ -3,7 +3,7 @@ import api from "./api";
 interface BaseRequest<T = {}> {
 	data: T;
 }
-//////////// Authentication functions
+///////Authentication functions
 export interface ILogin {
 	email: string;
 	password: string;
