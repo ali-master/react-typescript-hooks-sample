@@ -1,7 +1,6 @@
 import * as React from "react";
 
 interface MaybeProps {
-	children: React.ReactElement;
 	condition?: boolean;
 }
 
